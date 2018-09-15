@@ -6,7 +6,7 @@ SOURCE_DIR = source
 TARGET_DIR = docs
 
 MD = pandoc --data-dir=$(CURDIR) \
-	--from markdown-markdown_in_html_blocks+raw_html --standalone --quiet \
+	--from markdown --standalone --quiet \
 	--highlight-style kate \
 	--filter plugins/graphviz.py \
 	--filter plugins/diag.py
