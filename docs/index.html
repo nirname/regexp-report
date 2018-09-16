@@ -221,8 +221,8 @@ code span. { color: #1f1c1b; } /* Normal */
 <pre><code>DD.MM.YYYY</code></pre>
 <pre><code>#(###) ###-##-##</code></pre>
 <pre class="sourceCode ruby" id="cb3"><code class="sourceCode ruby"><div class="sourceLine" id="cb3-1" data-line-number="1"><span class="dt">Time</span>.now.strftime(<span class="st">&quot;%d.%m.%Y&quot;</span>) <span class="co"># =&gt; &quot;16.09.2018&quot;</span></div></code></pre>
-</section><section id="практикум" class="slide level3" data-transition="none">
-<h3>Практикум</h3>
+</section><section id="из-чего-состоят" class="slide level3" data-transition="none">
+<h3>Из чего состоят</h3>
 <ul>
 <li>Символьные классы</li>
 <li>Квантификаторы</li>
@@ -248,21 +248,33 @@ code span. { color: #1f1c1b; } /* Normal */
 <li><code>{2,}</code> - больше 2</li>
 <li><code>{,2}</code> - меньше 2</li>
 </ul>
-</section><section id="альтернативы-и-группировки" class="slide level3" data-transition="none">
-<h3>Альтернативы и группировки</h3>
+</section><section id="альтернативы" class="slide level3" data-transition="none">
+<h3>Альтернативы</h3>
+<pre class="regex"><code>(one|two)</code></pre>
+</section><section id="жадный-или-ленивый" class="slide level3" data-transition="none">
+<h3>Жадный или ленивый</h3>
+<pre class="regex"><code>.*?</code></pre>
+</section><section id="группировки" class="slide level3" data-transition="none">
+<h3>Группировки</h3>
 <p>С сохранением в переменные <code>$1</code>, <code>$2</code></p>
 <pre class="regex"><code>(a|b)</code></pre>
 <p>Без сохранения</p>
 <pre class="regex"><code>(?:a|b)</code></pre>
 </section><section id="модификаторы" class="slide level3" data-transition="none">
 <h3>Модификаторы</h3>
-<pre class="regex"><code>/abc/i
-/[Aa][Bb][Cc]/</code></pre>
+<pre class="regex"><code>/[Aa][Bb][Cc]/
+/abc/i</code></pre>
 <ul>
 <li><strong>m</strong>ultiline</li>
 <li><strong>i</strong>gnorcase</li>
 <li>e<strong>x</strong>tended</li>
 </ul>
+</section><section id="якоря" class="slide level3">
+<h3>Якоря</h3>
+<pre class="regex"><code>^Start of line
+End of line$
+\AStart of string
+End of string\z</code></pre>
 </section><section id="уровни-трансляции" class="slide level3" data-transition="none">
 <h3>Уровни трансляции</h3>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>

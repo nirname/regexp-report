@@ -57,7 +57,7 @@ DD.MM.YYYY
 Time.now.strftime("%d.%m.%Y") # => "16.09.2018"
 ```
 
-### Практикум { data-transition="none" }
+### Из чего состоят { data-transition="none" }
 
 * Символьные классы
 * Квантификаторы
@@ -85,7 +85,19 @@ Time.now.strftime("%d.%m.%Y") # => "16.09.2018"
 * `{2,}` - больше 2
 * `{,2}` - меньше 2
 
-### Альтернативы и группировки { data-transition="none" }
+### Альтернативы { data-transition="none" }
+
+```regex
+(one|two)
+```
+
+### Жадный или ленивый { data-transition="none" }
+
+```regex
+.*?
+```
+
+### Группировки { data-transition="none" }
 
 С сохранением в переменные `$1`, `$2`
 ```regex
@@ -101,13 +113,22 @@ Time.now.strftime("%d.%m.%Y") # => "16.09.2018"
 ### Модификаторы { data-transition="none" }
 
 ```regex
-/abc/i
 /[Aa][Bb][Cc]/
+/abc/i
 ```
 
 * **m**ultiline
 * **i**gnorcase
 * e**x**tended
+
+### Якоря
+
+```regex
+^Start of line
+End of line$
+\AStart of string
+End of string\z
+```
 
 ### Уровни трансляции { data-transition="none" }
 
