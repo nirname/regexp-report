@@ -121,7 +121,7 @@ Time.now.strftime("%d.%m.%Y") # => "16.09.2018"
 * **i**gnorcase
 * e**x**tended
 
-### Якоря
+### Якоря { data-transition="none" }
 
 ```regex
 ^Start of line
@@ -130,17 +130,97 @@ End of line$
 End of string\z
 ```
 
+### Внутреннее устройство { data-transition="none" }
+
+```regex
+(t|x|\.)*\.txt
+```
+
+Finite automation
+
+```dot
+digraph {
+  bgcolor="transparent"
+  rankdir=LR
+  node[shape="circle"]
+  0 -> 1 [label="e"]
+  1 -> { 2 4 6} [label="e"]
+  { 3 5 7 } -> 8 [label="e"]
+  2 -> 3 [label="t"]
+  4 -> 5 [label="x"]
+  6 -> 7 [label="."]
+  8 -> 9 [label="e"]
+  8 -> 1 [label="e"]
+  0 -> 9 [label="e"]
+  9 -> 10  [label="."]
+  10 -> 11 [label="t"]
+  11 -> 12 [label="x"]
+  12 -> 13 [label="t"]
+  13 [shape="doublecircle"]
+}
+```
+
+### Сбалансированные скобки { data-transition="none" }
+
+```ruby
+re = %r{(?<re>\((?:(?>[^()]+)|\g<re>)*\))}x
+"(())()(()())".scan re
+ => [["(())"], ["()"], ["(()())"]]
+```
+
 ### Уровни трансляции { data-transition="none" }
 
 ```dot
 digraph {
   bgcolor="transparent"
   node [shape="none" fontsize="30.0"]
-  lexical ->
-  syntactic ->
-  semantic
+  edge [fontsize="25.0"]
+
+  ""->lexical [label="  "]
+  lexical->syntactic [label="  "]
+  syntactic->semantic [label="  "]
+  semantic->" " [label="  "]
 }
 ```
+
+### Уровни трансляции { data-transition="none" }
+
+```dot
+digraph {
+  bgcolor="transparent"
+  node [shape="none" fontsize="30.0"]
+  edge [fontsize="25.0"]
+
+  ""->lexical [label="  source"]
+  lexical->syntactic [label="  tokens"]
+  syntactic->semantic [label="  AST"]
+  semantic->" " [label="  Attr. AST"]
+}
+```
+
+### Уровни трансляции { data-transition="none" }
+
+```dot
+digraph {
+  bgcolor="transparent"
+  node [shape="none" fontsize="30.0"]
+  edge [fontsize="25.0"]
+
+  ""->lexical [label="  source"]
+  lexical->syntactic [label="  tokens"]
+  syntactic->semantic [label="  AST"]
+  semantic->" " [label="  Attr. AST"]
+
+  lexical [label="regexp" fontcolor="cornflowerblue"]
+  syntactic [label="grammar" fontcolor="red"]
+}
+```
+
+### Кроссворды
+
+> [Несложный](https://regexcrossword.com/challenges/tutorial/puzzles/1)
+> [Чуть сложнее](https://regexcrossword.com/challenges/beginner/puzzles/1)
+> [Средний](https://regexcrossword.com/playerpuzzles/95899f33-9429-4de2-9949-f6fd2f0f469f)
 
 <script type="text/javascript" src="regex-colorizer.js">
 </script>
