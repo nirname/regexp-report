@@ -40,15 +40,28 @@ digraph workflow {
 ```
 </p>
 
-### Шаблоны { data-transition="none" }
+### Форматная строка / Маска { data-transition="none" }
 
-```1c
+```
 DD.MM.YYYY
+```
+
+```
+#(###) ###-##-##
 ```
 
 ```ruby
 Time.now.strftime("%d.%m.%Y") # => "16.09.2018"
 ```
+
+### Практикум { data-transition="none" }
+
+> * Символьные классы
+  * Квантификаторы
+  * Альтернативы
+  * Группировки
+  * Модификаторы
+
 
 <script type="text/javascript" src="regex-colorizer.js">
 </script>
