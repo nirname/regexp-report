@@ -216,7 +216,7 @@ digraph {
 }
 ```
 
-### Кроссворды
+### Кроссворды { data-transition="none" }
 
 > [Несложный](https://regexcrossword.com/challenges/tutorial/puzzles/1)
 > [Чуть сложнее](https://regexcrossword.com/challenges/beginner/puzzles/1)
